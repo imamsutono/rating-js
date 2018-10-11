@@ -45,6 +45,24 @@ function renderRating(el) {
 
   for (var i = 0; i < max; i++) {
     var star = document.createElement('i');
+    var color;
+
+    if (i !== (max - 1)) {
+      star.classList.add('zmdi', 'zmdi-star', 'zmdi-2x', i);
+    } else {
+
+      if (value.indexOf('.') === -1) {
+        star.classList.add('zmdi', 'zmdi-star', 'zmdi-2x', i);
+      } else {
+        star.classList.add('zmdi', 'zmdi-star-half', 'zmdi-2x', i);
+      }
+    }
+
+    if (i < value) color = '#D61D58';
+    else color = 'lightgrey';
+
+    star.style.color = color;
+
     star.classList.add('zmdi', 'zmdi-star', 'zmdi-hc-3x', i);
     star.onclick = onClickRating;
 
